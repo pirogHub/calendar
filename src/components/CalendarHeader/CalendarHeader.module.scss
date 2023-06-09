@@ -1,0 +1,14 @@
+.CalendarHeader_wrapper {
+    min-height: 148px;
+    padding: 10px;
+    padding-inline: 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #f00; */
+    align-items: center;
+}
+
+.title {
+    font-size: 2.2rem;
+}

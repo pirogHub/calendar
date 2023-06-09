@@ -1,0 +1,20 @@
+.hour_wrapper {
+    height: 70px;
+    width: 100%;
+    border: 1px solid #eeeaea;
+    box-sizing: border-box;
+    padding: 5px;
+    position: relative;
+}
+
+.hour {
+    background-color: #d7f0df9c;
+    height: 100%;
+    width: 100%;
+}
+
+.timeTitle {
+    position: absolute;
+    top: -0.9rem;
+    right: 5px;
+}

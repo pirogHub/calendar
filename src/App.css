@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calendarWrapper {
+  max-width: 740px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-inline: auto;
+  /* overflow: auto; */
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.carousel-root {
+  height: 120px;
+  margin-bottom: -20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.control-dots {
+  bottom: -2px !important;
+}
+
+& .carousel {
+  height: 100%;
+}
+
+.my_grid {
+  display: flex;
+
+  /* display: grid; */
+  &>*:first-child {
+    width: calc(100% / 8);
   }
-  to {
-    transform: rotate(360deg);
+
+  &>*:last-child {
+    max-width: calc(100% / 8 * 7);
+    min-width: calc(100% / 8 * 7);
   }
+}
+
+.my_grid_styles {
+  background-color: #efefefa8;
+  border: 3px solid #dfdfdf;
+  border-width: 3px 0;
+
+  padding-right: 3px;
+
+}
+
+.my_grid_hourweek {
+  width: 100%;
 }

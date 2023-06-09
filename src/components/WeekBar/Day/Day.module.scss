@@ -1,0 +1,37 @@
+.day_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 120px;
+    // border: 1px solid #000;
+    font-size: 1.2rem;
+    padding-bottom: 0;
+
+}
+
+.day_name {
+    flex: 1;
+}
+
+.day_num_wrapper {
+    flex: 2;
+}
+
+.day_num {
+    display: inline-flex;
+    height: 3.5rem;
+    width: 3.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+
+    &.currentDay {
+        background-color: #f00;
+        border-radius: 50px;
+        color: #FFF;
+    }
+
+}

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Day from '../Day/Day'
+import Day from '../WeekBar/Day/Day'
 
 export default function Month({ month }) {
     return (
