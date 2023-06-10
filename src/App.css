@@ -1,13 +1,13 @@
-.calendarWrapper {
-  max-width: 740px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin-inline: auto;
-  /* overflow: auto; */
-  position: relative;
-  overflow: hidden;
-}
+/* .calendarWrapper {
+   max-width: 740px;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   margin-inline: auto;
+   position: relative;
+   overflow: hidden;
+ }
+ */
 
 .carousel-root {
   height: 120px;
@@ -22,29 +22,30 @@
   height: 100%;
 }
 
-.my_grid {
-  display: flex;
 
-  /* display: grid; */
-  &>*:first-child {
-    width: calc(100% / 8);
+
+#root,
+#root * {
+  scrollbar-width: thin;
+  scrollbar-color: #f00 #f5f5f5;
+
+
+  /* Работает в Chrome, Edge и Safari */
+  &::-webkit-scrollbar {
+    width: 3px;
+    padding: 1px;
+    height: 5px;
   }
 
-  &>*:last-child {
-    max-width: calc(100% / 8 * 7);
-    min-width: calc(100% / 8 * 7);
+  &::-webkit-scrollbar-track {
+    background: #f5f5f5;
+
   }
-}
 
-.my_grid_styles {
-  background-color: #efefefa8;
-  border: 3px solid #dfdfdf;
-  border-width: 3px 0;
+  &::-webkit-scrollbar-thumb {
+    background-color: #f00;
+    border-radius: 20px;
+    /* border: 3px solid #0f0; */
 
-  padding-right: 3px;
-
-}
-
-.my_grid_hourweek {
-  width: 100%;
+  }
 }

@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import plusImg from "../../assets/images/plus.svg"
-import GlobalContext from '../../context/GlobalContext'
-import styles from "./CreateEventButton.module.scss"
+import React from 'react'
+import { useCalendar } from '../../context/GlobalContext'
+
 import dayjs from 'dayjs'
-import { createDayId, createHourId, createHourIdFromDayjs, createIdsService } from '../../util'
+import { createIdsService } from '../../util'
+import { StyledBtn } from './StyledBtn'
 export default function CreateEventButton() {
 
-    const { SetShowEventModal, hourActivity_add } = useContext(GlobalContext)
+    const { hourActivity_add } = useCalendar()
 
     const onClick = () => {
         let eventTime = prompt("Enter event time:\nYYYY-MM-DD HH:mm:ss");
@@ -34,11 +34,12 @@ export default function CreateEventButton() {
     }
 
     return (
-        <button
+        <StyledBtn
+            $largeTxt
             onClick={onClick}
-            className={styles.createBtn}>
-
+        >
             +
-        </button>
+        </StyledBtn>
+
     )
 }

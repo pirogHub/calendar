@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react'
-import Day from '../WeekBar/Day/Day'
-import Hour from '../Hour/Hour'
-import styles from "./DayOfHours.module.scss"
+import React from 'react'
+import Hour from './Hour/Hour'
 import dayjs from 'dayjs'
-import { createIdsService } from '../../util'
+import { createIdsService } from '../util'
+import { styled } from 'styled-components'
 const fakeDay = new Array(24).fill([])
 const timeArr = Array.from({ length: 24 }, (x, idx) => {
     const timeStr = `${idx}`.padStart(2, "0")
@@ -13,7 +12,8 @@ export default function DayOfHours({ day, dayId, eventsToday }) {
 
 
     return (
-        <div className={styles.dayWrapper}>
+        <DayWrapper
+        >
 
             {fakeDay.map((h, idx) => {
                 const eventsThatHour = eventsToday ? eventsToday.filter(e => {
@@ -23,7 +23,7 @@ export default function DayOfHours({ day, dayId, eventsToday }) {
 
                 const hourId = createIdsService.createHourIdByDayId(dayId, idx)
                 return <Hour
-                    hour={h}
+                    $withBorder
                     key={idx}
                     hourId={hourId}
                     eventsThatHour={eventsThatHour}
@@ -32,6 +32,12 @@ export default function DayOfHours({ day, dayId, eventsToday }) {
 
 
 
-        </div>
+        </DayWrapper>
     )
 }
+
+const DayWrapper = styled.div`
+        height: 100%;
+    width: calc(100% / 7);
+
+`

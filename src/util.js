@@ -34,7 +34,7 @@ export function getMonth(month = dayjs().month()) {
     let currentDayIdx = 0
 
     const daysMatrix = new Array(countWeeksDays).fill([]).map((_, idx) => {
-        const daysInWeek = countDaysOfMonth / 7 > 1 ? 7 : countDaysOfMonth % 7
+        const daysInWeek = countDaysOfMonth / 7 >= 1 ? 7 : countDaysOfMonth % 7
         countDaysOfMonth -= 7
         const newWeek = new Array(daysInWeek).fill(null).map(() => {
             currentDayIdx++

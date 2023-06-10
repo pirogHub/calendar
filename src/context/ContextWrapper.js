@@ -24,6 +24,8 @@ export default function ContextWrapper(props) {
     const [isSelectedHourHasActivity, setIsSelectedHourHasActivity] = useState(false)
 
 
+
+
     const [isGoToday, setIsGoToday] = useState(false)
 
 
@@ -61,9 +63,19 @@ export default function ContextWrapper(props) {
     }, [monthIndex])
 
     useEffect(() => {
+        let cw = currentMonth[currentWeekIdx]
+        if (!cw || !Array.isArray(cw) || !cw.length) {
+            setCurrentWeekIdx(prev => {
+                const p = prev - 1
+                const flag = prev - 1 > 0
+                const n = flag ? prev - 1 : 0
+
+                return n
+            })
+            return
+        }
         setCurrentWeek(currentMonth[currentWeekIdx])
     }, [currentWeekIdx, currentMonth])
-
 
 
     const goToday = () => {

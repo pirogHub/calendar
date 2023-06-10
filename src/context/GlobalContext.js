@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 const GlobalContext = React.createContext({
     currentWeek: [],
@@ -28,5 +28,7 @@ const GlobalContext = React.createContext({
     goToday: () => { }
 
 })
+
+export const useCalendar = () => useContext(GlobalContext)
 
 export default GlobalContext;
