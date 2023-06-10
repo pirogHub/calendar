@@ -12,7 +12,7 @@ export const StyledBtn = styled.button`
     border: 1px solid transparent;
     transition: all .25s cubic-bezier(0.64, 0.3, 1, 1);;
     border-radius: 3px;
-    width: 100%;
+    width: ${props => props.$notWFull ? "auto" : "100%"};
     svg {
         width: 11px;
 

@@ -36,6 +36,7 @@ export default function CreateEventButton() {
     return (
         <StyledBtn
             $largeTxt
+            $notWFull
             onClick={onClick}
         >
             +

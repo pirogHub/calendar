@@ -6,6 +6,7 @@ const CalendarHeader = () => {
     return (
         <StyledCalendarHeader>
             <StyledBtn
+                $notWFull
                 $isNotActivity
             >
                 Calendar
@@ -23,7 +24,7 @@ export default CalendarHeader
 const StyledCalendarHeader = styled.header`
      min-height: 128px;
     padding: 0px;
-    /* padding-inline: 60px; */
+    padding-inline: 48px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;

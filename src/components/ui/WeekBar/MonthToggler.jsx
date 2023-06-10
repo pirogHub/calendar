@@ -43,6 +43,7 @@ export default function WeekToggler() {
 const MonthTogglerWrapper = styled.div`
   display: flex;
         /* justify-content: space-between; */
+        padding-bottom: 3px;
 
     .data_label {
         width: 100%;
