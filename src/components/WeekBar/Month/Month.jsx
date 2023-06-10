@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import styles from "./Month.module.scss"
 import Day from '../Day/Day';
-const tooglesGroupId = 'Toggles';
-const valuesGroupId = 'Values';
-const mainGroupId = 'Main';
+import GlobalContext from '../../../context/GlobalContext';
+
 
 const getConfigurableProps = () => ({
     showArrows: true,
@@ -22,7 +21,7 @@ const getConfigurableProps = () => ({
     emulateTouch: true,
     autoFocus: false,
     // thumbWidth: 100,
-    selectedItem: 0,
+    // selectedItem: 0,
     // interval: 2000,
     // transitionTime: 500,
     swipeScrollTolerance: 5,
@@ -31,20 +30,31 @@ const getConfigurableProps = () => ({
 });
 
 export default function Month({ onChangeWeek, month }) {
-
+    const [selectedItem, setSelectedItem] = useState(0)
     const onChange = (itemIdx, item) => {
-        // setCurrentWeek(prev => itemIdx)
         onChangeWeek(itemIdx)
     }
+    const { todayWeekIdx, isGoToday, setIsGoToday }
+        = useContext(GlobalContext)
+    const carousel_ref = useRef()
+    useEffect(() => {
+        if (isGoToday) {
+
+            carousel_ref.current.selectItem({ ...carousel_ref.current.state, selectedItem: todayWeekIdx })
+
+            setIsGoToday(false)
+        }
+    }, [isGoToday])
     return (
         <>
             <Carousel
+                ref={carousel_ref}
                 infiniteLoop
                 centerMode
                 onChange={onChange}
-
-                // centerSlidePercentage={number('centerSlidePercentage', 80, {}, mainGroupId)}
                 {...getConfigurableProps()}
+                selectedItem={todayWeekIdx}
+
             >
 
 

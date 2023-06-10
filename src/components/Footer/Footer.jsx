@@ -5,7 +5,8 @@ import styles from "./Footer.module.scss"
 import cn from "classnames"
 
 export default function Footer() {
-    const { selectedHour, goToday, hourActivity_deleteAllHour, isSelectedHourHasActivity } = useContext(GlobalContext)
+    const { monthIndex, setMonthIndex, selectedHour, goToday, hourActivity_deleteAllHour, isSelectedHourHasActivity } = useContext(GlobalContext)
+
 
     return (
         <footer className={styles.footer}>

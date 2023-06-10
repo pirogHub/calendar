@@ -1,4 +1,5 @@
 .WeekOfHours {
+
     height: 100%;
     position: relative;
 
@@ -6,6 +7,7 @@
 
 .wrapper {
     top: 0;
+
     bottom: 0;
     position: absolute;
     width: 100%;
@@ -14,6 +16,7 @@
 }
 
 .content {
+    padding-top: 10px;
     background-color: white;
     max-height: 100%;
     display: flex;

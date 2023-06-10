@@ -3,19 +3,16 @@ import { useContext, useEffect, useState } from "react"
 import GlobalContext from "../../../context/GlobalContext"
 import styles from "./Day.module.scss"
 import cn from "classnames"
+import { checkIsEqualDays } from "../../../util"
 const Day = ({ day, rowIdx }) => {
   const [dayEvents, setDayEvents] = useState([])
   const { setSelectedEvent, filteredEvents: savedEvents, setDaySelected, SetShowEventModal }
     = useContext(GlobalContext)
 
-  // useEffect(() => {
 
-  //   const events = savedEvents.filter(e => dayjs(e.day).format("DD-MM-YY") === day.format("DD-MM-YY"))
-  //   setDayEvents(events)
-  // }, [savedEvents])
 
   function getCurrentDayCtyle() {
-    return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
+    return checkIsEqualDays(day, dayjs())
 
   }
 
@@ -23,7 +20,7 @@ const Day = ({ day, rowIdx }) => {
   return (
     <div className={styles.day_wrapper}>
 
-      <div className={styles.day_name}>{day.format("ddd").toUpperCase()}</div>
+      <div className={styles.day_name}>{day.format("ddd")[0].toUpperCase()}</div>
 
       <div className={styles.day_num_wrapper}>
 

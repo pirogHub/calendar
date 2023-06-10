@@ -6,7 +6,6 @@ import GlobalContext from '../../context/GlobalContext'
 import Month from './Month/Month'
 
 export default function WeekBar() {
-    // const [currentMonth, setCurrentMonth] = useState(getMonth())
     const { monthIndex, setMonthIndex, currentMonth, setCurrentWeekIdx } = useContext(GlobalContext)
 
     const onClickPrev = useCallback(() => {
@@ -19,9 +18,7 @@ export default function WeekBar() {
     const onChangeWeek = useCallback((weekIdx) => {
         setCurrentWeekIdx(prev => weekIdx)
     }, [setCurrentWeekIdx])
-    // useEffect(() => {
-    //     setCurrentMonth(getMonth(monthIndex))
-    // }, [monthIndex])
+
     return (
         <div className={styles.weekBar_wrapper}>
             <div className={styles.week_wrapper}>

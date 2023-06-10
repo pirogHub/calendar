@@ -6,10 +6,7 @@ import CreateEventButton from "../CreateEventButton/CreateEventButton"
 import styles from "./CalendarHeader.module.scss"
 const CalendarHeader = () => {
 
-    const { monthIndex, setMonthIndex } = useContext(GlobalContext)
-    const handeReset = () => {
-        setMonthIndex(prev => monthIndex === dayjs().month() ? monthIndex + Math.random() : monthIndex)
-    }
+
     return (
 
 
