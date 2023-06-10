@@ -19,8 +19,8 @@ export default function WeekBar() {
 }
 
 const WeekBarWrapper = styled.div`
-    min-height: 155px;
-    max-height: 155px;
+    min-height: 140px;
+    max-height: 140px;
 
     grid-template-columns: 100%;
     grid-template-rows: 3fr 1fr;
@@ -29,8 +29,8 @@ const WeekBarWrapper = styled.div`
     box-sizing: border-box;
 
     @media all and (max-width: 600px) {
-      min-height: 145px;
-    max-height: 145px;
+        min-height: 140px;
+    max-height: 140px;
     }
 
     @media all and (max-width: 500px) {

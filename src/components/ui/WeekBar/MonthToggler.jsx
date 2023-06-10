@@ -21,6 +21,7 @@ export default function WeekToggler() {
         <MonthTogglerWrapper
         >
             <StyledBtn
+                $withoutPudding
                 onClick={onClickPrev}
             >
                 <Arrow />
@@ -29,6 +30,7 @@ export default function WeekToggler() {
                 {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
             </h2>
             <StyledBtn
+                $withoutPudding
                 onClick={onClickNext}
             >
                 <Arrow isRight />
@@ -40,13 +42,19 @@ export default function WeekToggler() {
 
 const MonthTogglerWrapper = styled.div`
   display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
 
     .data_label {
+        width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 2rem;
-}
+    font-size: 1.5rem;
+        flex: 5;
+    }
+
+    ${StyledBtn} {
+        flex: 1;
+    }
 `

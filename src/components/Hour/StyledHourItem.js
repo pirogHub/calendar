@@ -32,7 +32,11 @@ export const StyledHourItem = styled.div`
     position: absolute;
     top: -1.2rem;
     right: 8px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+
+    @media all and (max-width: 570px) {
+        font-size: 1rem;
+    }
     }
 
    

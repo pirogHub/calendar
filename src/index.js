@@ -31,6 +31,7 @@ const light = {
 // ${props => props.theme. }
 const theme = {
   fzsm: "1.2rem",
+  fzsmxl: "1.5rem",
   fz: "2rem",
   fzxl: "4rem",
   ...light

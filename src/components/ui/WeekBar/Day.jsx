@@ -64,7 +64,7 @@ const DayWrapper = styled.div`
     justify-content: center;
     box-sizing: border-box;
     padding: 10px;
-    height: 115px;
+    height: 90px;
     /* font-size: 1.2rem; */
     font-size: ${props => props.theme.fzsm};
     padding-bottom: 0;
@@ -94,8 +94,8 @@ const DayWrapper = styled.div`
       & .circle {
         position: absolute;
         z-index:-1;
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.1rem;
+        height: 3.1rem;
     }
     }
 
@@ -108,8 +108,6 @@ const DayWrapper = styled.div`
      .circle {
         position: absolute;
         z-index:-1;
-        width: 3.5rem;
-        height: 3.5rem;
         background: ${props => props.theme.color_active};
         border-radius: 50px;
         border: 1px solid ${props => props.theme.color_active};
