@@ -12,6 +12,7 @@ button {
 
 html {
     font-size: 14px;
+    background-color: #f0f;
 
     @media all and (max-width: 600px) {
         font-size: 90%;
