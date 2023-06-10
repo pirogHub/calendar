@@ -19,7 +19,19 @@
 }
 
 .control-dots {
-  bottom: -10px !important;
+  bottom: -15px !important;
+
+  @media all and (max-width: 600px) {
+    bottom: -10px !important;
+  }
+
+  @media all and (max-width: 400px) {
+    bottom: -10px !important;
+  }
+
+  @media all and (max-width: 320px) {
+    bottom: -10px !important;
+  }
 }
 
 .carousel .control-dots .dot.selected {
