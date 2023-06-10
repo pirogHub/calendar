@@ -14,7 +14,7 @@ export const StyledBtn = styled.button`
     border-radius: 3px;
     width: 100%;
     svg {
-        width: 13px;
+        width: 11px;
 
         fill: var(--color);
         stroke: var(--color);
