@@ -44,7 +44,7 @@ margin-top: 15px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 220px;
+        height: 230px;
         padding-inline:10px;
         background-color: ${props => props.theme.bg_color_additional};
         /* background-color: #f00; */
@@ -54,6 +54,17 @@ margin-top: 15px;
         border-width: 3px 0 0 0;
         border-color: ${props => props.theme.border_color_additional};
         /* border-color: #f00; */
-        
+       
+    @media all and (max-width: 600px) {
+         height: 220px;
+    }
+
+    @media all and (max-width: 400px) {
+         height: 180px;
+    }
+
+    @media all and (max-width: 320px) {
+         height: 160px;
+    } 
     
     `

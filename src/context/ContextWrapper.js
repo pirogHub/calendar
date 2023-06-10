@@ -45,7 +45,7 @@ export default function ContextWrapper(props) {
     }
     const hourActivity_deleteAllHour = () => {
 
-        dispatchCalEvent({ type: "deleteAllHour", payload: selectedHour })
+        dispatchCalEvent({ type: "deleteAllHour", payload: { hourId: selectedHour } })
         setIsSelectedHourHasActivity(false)
         setSelectedHour(null)
     }

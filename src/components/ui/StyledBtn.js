@@ -6,7 +6,7 @@ export const StyledBtn = styled.button`
 
     padding: 5px 45px;
     color: var(--color);
-   font-size: ${props => props.$largeTxt ? props.theme.fzxl : props.theme.fz};
+    font-size: ${props => props.$largeTxt ? props.theme.fzxl : props.theme.fz};
     border: 1px solid transparent;
     transition: all .25s cubic-bezier(0.64, 0.3, 1, 1);;
     border-radius: 3px;
@@ -16,6 +16,7 @@ export const StyledBtn = styled.button`
         fill: var(--color);
         stroke: var(--color);
         color: var(--color);
+
     }
 
     &:hover {
@@ -25,6 +26,18 @@ export const StyledBtn = styled.button`
     &:disabled,&:hover:disabled {
         color: ${props => props.theme.color_disabled};
         box-shadow: 0px 0px 3px ${props => props.theme.color_disabled_hover};
+    }
+
+
+    @media all and (max-width: 500px) {
+        padding: 5px 35px;
+    }
+
+    @media all and (max-width: 390px) {
+        padding: 5px 25px;
+    }
+    @media all and (max-width: 300px) {
+        padding: 5px 15px;
     }
 `
 

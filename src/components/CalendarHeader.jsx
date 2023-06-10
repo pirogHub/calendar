@@ -30,4 +30,17 @@ const StyledCalendarHeader = styled.header`
     /* background-color: #f00; */
     align-items: center;
 
+    @media all and (max-width: 600px) {
+        min-height: 110px;
+    }
+
+    @media all and (max-width: 400px) {
+        min-height: 100px;
+    }
+
+    @media all and (max-width: 320px) {
+        min-height: 80px;
+    }
+
+
 `

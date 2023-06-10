@@ -1,6 +1,8 @@
 import dayjs from "dayjs"
 import { checkIsEqualDays } from "../../../util"
 import { styled } from "styled-components"
+
+import cn from "classnames"
 const Day = ({ day, rowIdx }) => {
 
   function getCurrentDayCtyle() {
@@ -16,12 +18,21 @@ const Day = ({ day, rowIdx }) => {
         {day.format("ddd")[0].toUpperCase()}
       </div>
 
-      <div className="day_num_wrapper">
+      <div
+        className={cn("day_num_wrapper", {
+          "currentDay": getCurrentDayCtyle()
+        })}
+      >
+        <div className="day_num_abs_container" >
 
-        <DayNum
-          className={getCurrentDayCtyle() ? "currentDay" : ""}
-        >{day.format("DD")}
-        </DayNum>
+          <DayNum
+          // className={getCurrentDayCtyle() ? "currentDay" : ""}
+          >{day.format("DD")}
+          </DayNum>
+          <div
+            className="circle"
+          ></div>
+        </div>
       </div>
 
 
@@ -33,16 +44,32 @@ const Day = ({ day, rowIdx }) => {
 export default Day
 
 
+const DayNum = styled.span`
+    
+    --fz: ${props => props.theme.fz.replace(/[^0-9]/g, "")};
+    display: inline-flex;
+ 
+    justify-content: center;
+    align-items: center;
+    font-size: calc(var(--fz) * 1rem);
+
+    
+   
+`
+
+
 const DayWrapper = styled.div`
-  display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
     padding: 10px;
-    height: 120px;
+    height: 115px;
     /* font-size: 1.2rem; */
     font-size: ${props => props.theme.fzsm};
     padding-bottom: 0;
+    text-align:center;
+    position:relative;
 
     .day_name {
       flex: 1;
@@ -50,26 +77,64 @@ const DayWrapper = styled.div`
 
     .day_num_wrapper {
       flex: 2;
+
+      position: relative;
+
+      .day_num_abs_container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      & .circle {
+        position: absolute;
+        z-index:-1;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
     }
 
-`
-const DayNum = styled.span`
-    
-    --fz: ${props => props.theme.fz.replace(/[^0-9]/g, "")};
+    .day_num_wrapper.currentDay { 
 
-    display: inline-flex;
-    width: 3.5rem;
-    height: 3.5rem;
-    /* height: 3.5rem;
-    width: 3.5rem; */
-    justify-content: center;
-    align-items: center;
-    font-size: calc(var(--fz) * 1rem);
+      ${DayNum} {
+      color: ${props => props.theme.color_active_invert};
+    }
 
-    
-    &.currentDay {
-        background-color: ${props => props.theme.color_active};
+     .circle {
+        position: absolute;
+        z-index:-1;
+        width: 3.5rem;
+        height: 3.5rem;
+        background: ${props => props.theme.color_active};
         border-radius: 50px;
-        color: ${props => props.theme.color_active_invert};
+        border: 1px solid ${props => props.theme.color_active};
+    
     }
+
+   
+    }
+
+
+    @media all and (max-width: 600px) {
+      height: 90px;
+    }
+
+    @media all and (max-width: 400px) {
+      height: 90px;
+    }
+    @media all and (max-width: 360px) {
+      height: 75px;
+    }
+
+    @media all and (max-width: 320px) {
+      height: 70px;
+    } 
+
+   
+
 `

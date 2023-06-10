@@ -45,6 +45,8 @@ const MonthTogglerWrapper = styled.div`
     .data_label {
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     font-size: 2rem;
 }
 `

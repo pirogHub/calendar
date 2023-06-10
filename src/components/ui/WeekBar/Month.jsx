@@ -29,7 +29,6 @@ const getConfigurableProps = () => ({
     centerSlidePercentage: 100
 });
 
-// export default function Month({ onChangeWeek, month }) {
 export default function Month() {
 
     const {

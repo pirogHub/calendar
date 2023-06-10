@@ -19,7 +19,7 @@ export default function WeekBar() {
 }
 
 const WeekBarWrapper = styled.div`
-        min-height: 155px;
+    min-height: 155px;
     max-height: 155px;
 
     grid-template-columns: 100%;
@@ -27,4 +27,24 @@ const WeekBarWrapper = styled.div`
     /* max-width: 100%; */
     padding: 2px;
     box-sizing: border-box;
+
+    @media all and (max-width: 600px) {
+      min-height: 145px;
+    max-height: 145px;
+    }
+
+    @media all and (max-width: 500px) {
+      min-height: 130px;
+    max-height: 130px;
+    }
+    @media all and (max-width: 400px) {
+      min-height: 130px;
+    max-height: 130px;
+    }
+
+    @media all and (max-width: 320px) {
+      min-height: 125px;
+    max-height: 125px;
+    } 
+
 `

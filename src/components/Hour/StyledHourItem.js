@@ -28,10 +28,16 @@ export const StyledHourItem = styled.div`
               
     }
 
-.timeTitle {
-position: absolute;
-top: -1.2rem;
-right: 8px;
-font-size: 1.5rem;
-}
+    .timeTitle {
+    position: absolute;
+    top: -1.2rem;
+    right: 8px;
+    font-size: 1.5rem;
+    }
+
+   
+
+    @media all and (max-width: 465px) {
+        height: 55px;
+    }
 `
