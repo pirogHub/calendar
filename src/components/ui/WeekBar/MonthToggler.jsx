@@ -22,6 +22,7 @@ export default function WeekToggler() {
         >
             <StyledBtn
                 $withoutPadding={true}
+                $withoutBoxShadow={true}
                 onClick={onClickPrev}
             >
                 <Arrow />
@@ -31,6 +32,7 @@ export default function WeekToggler() {
             </h2>
             <StyledBtn
                 $withoutPadding={true}
+                $withoutBoxShadow={true}
                 onClick={onClickNext}
             >
                 <Arrow isRight />

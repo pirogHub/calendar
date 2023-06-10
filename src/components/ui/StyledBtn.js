@@ -2,7 +2,8 @@ import { styled } from "styled-components";
 
 export const StyledBtn = styled.button`
     --color: ${props => props.$isNotActivity ? props.theme.color_simple : props.theme.color_active};
-    --bsh: 0px 0px 3px ${props => props.theme.color_active_hover};
+    --color_hover: ${props => props.theme.color_active_hover};
+    --bsh: 0px 0px 3px ${props => props.$withoutBoxShadow ? "transparent" : props.theme.color_active_hover};
     --padding:  ${props => props.$withoutPadding ? "0" : "45px"};
 
     padding-block: 5px;
@@ -25,10 +26,22 @@ export const StyledBtn = styled.button`
     &:hover {
         color: ${props => props.theme.color_active_hover};
         box-shadow: ${props => props.$isNotActivity ? "none" : "var(--bsh)"};
+        svg {
+             fill: var(--color_hover);
+        stroke: var(--color_hover);
+        color: var(--color_hover);
+
+    }
     }
     &:disabled,&:hover:disabled {
         color: ${props => props.theme.color_disabled};
         box-shadow: 0px 0px 3px ${props => props.theme.color_disabled_hover};
+        svg {
+             fill: ${props => props.theme.color_disabled_hover};
+        stroke: ${props => props.theme.color_disabled_hover};
+        color: ${props => props.theme.color_disabled_hover};
+
+    }
     }
 
 
