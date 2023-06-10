@@ -30,7 +30,8 @@ export const StyledHourItem = styled.div`
 
     .timeTitle {
     position: absolute;
-    top: -1.2rem;
+    top:0;
+    transform: translateY(-50%);
     right: 8px;
     font-size: 1.3rem;
 
