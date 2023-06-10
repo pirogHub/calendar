@@ -30,9 +30,11 @@ const getConfigurableProps = () => ({
     centerSlidePercentage: 100
 });
 
-export default function Month({ month }) {
-    const onChange = (itemIdx, item) => {
+export default function Month({ onChangeWeek, month }) {
 
+    const onChange = (itemIdx, item) => {
+        // setCurrentWeek(prev => itemIdx)
+        onChangeWeek(itemIdx)
     }
     return (
         <>

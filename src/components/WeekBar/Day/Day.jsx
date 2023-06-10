@@ -8,11 +8,11 @@ const Day = ({ day, rowIdx }) => {
   const { setSelectedEvent, filteredEvents: savedEvents, setDaySelected, SetShowEventModal }
     = useContext(GlobalContext)
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const events = savedEvents.filter(e => dayjs(e.day).format("DD-MM-YY") === day.format("DD-MM-YY"))
-    setDayEvents(events)
-  }, [savedEvents])
+  //   const events = savedEvents.filter(e => dayjs(e.day).format("DD-MM-YY") === day.format("DD-MM-YY"))
+  //   setDayEvents(events)
+  // }, [savedEvents])
 
   function getCurrentDayCtyle() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")

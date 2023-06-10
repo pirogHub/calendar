@@ -3,15 +3,16 @@ import plusImg from "../../assets/images/plus.svg"
 import GlobalContext from '../../context/GlobalContext'
 import styles from "./CreateEventButton.module.scss"
 import dayjs from 'dayjs'
+import { createDayId, createHourId, createHourIdFromDayjs } from '../../util'
 export default function CreateEventButton() {
 
-    const { SetShowEventModal, dispatchCalEvent } = useContext(GlobalContext)
+    const { SetShowEventModal, hourActivity_add } = useContext(GlobalContext)
 
-    const onClick = (hourId) => {
+    const onClick = () => {
         let eventTime = prompt("Enter event time:\nYYYY-MM-DD HH:mm:ss");
         if (!eventTime) return
 
-        const timeObj = dayjs("dfgsdfg")
+        const timeObj = dayjs(eventTime)
         const isValid = timeObj.isValid()
         if (!isValid) return
 
@@ -19,13 +20,19 @@ export default function CreateEventButton() {
         // if (!data || !time) return
 
         // if (eventTime != null) {
-        //   const event = {
-        //     title, eventTime, 
-        //     day: day.valueOf(),
-        //     hour: 4,
-        //     id:  Date.now()
-        //   }
-        //   dispatchCalEvent({ type: "push", payload: event })
+        const dayId = createDayId(timeObj)
+        const hourId = createHourIdFromDayjs(timeObj)
+        const event = {
+            title: eventTime,
+            day: timeObj.valueOf(),
+            // hour: 4,
+            dayId,
+            hourId,
+            id: Date.now()
+        }
+
+        // dispatchCalEvent({ type: "push", payload: event })
+        hourActivity_add(event)
         // }
     }
 

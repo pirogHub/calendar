@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import Day from '../WeekBar/Day/Day'
 import DayOfHours from '../DayOfHours/DayOfHours'
 import styles from "./WeekOfHours.module.scss"
 import Hour from '../Hour/Hour'
+import { checkIsEqualDays, createDayId } from '../../util'
 
 const timeArr = Array.from({ length: 24 }, (x, idx) => {
     const timeStr = `${idx}`.padStart(2, "0")
@@ -11,7 +12,8 @@ const timeArr = Array.from({ length: 24 }, (x, idx) => {
 
 
 
-export default function WeekOfHours({ week }) {
+export default function WeekOfHours({ week, savedEvents }) {
+    // const [weekEvents, setWeekEvents] = useState(weekEvents)
     return (
         <div className={styles.WeekOfHours}>
 
@@ -31,8 +33,16 @@ export default function WeekOfHours({ week }) {
                         </div>
                         <div style={{ width: "100%", display: 'flex' }}>
                             {week.map((day, idx) => {
+                                const eventsToday = savedEvents ? savedEvents.filter(e => checkIsEqualDays(e.day, day)) : []
+                                // const eventsToday = savedEvents ? savedEvents.filter(e => checkIsEqualDays(e.day, day)) : []
+                                const dayId = createDayId(day)
 
-                                return <DayOfHours day={day} key={day.id} />
+                                return <DayOfHours
+                                    day={day}
+                                    key={day.id}
+                                    dayId={dayId}
+                                    eventsToday={eventsToday}
+                                />
                             })}
 
 

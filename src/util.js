@@ -25,3 +25,17 @@ export function getMonth(month = dayjs().month()) {
 
     return daysMatrix
 }
+
+export const checkIsEqualDays = (day1, day2) => {
+    return day1 && day2 && dayjs(day1).format("DD-MM-YYYY") === dayjs(day2).format("DD-MM-YYYY")
+}
+
+export const createHourId = (dayId, hourIdx) => {
+    return `${dayId} ${String(hourIdx).padStart(2, "0")}`
+}
+export const createHourIdFromDayjs = (day) => {
+    return day.format("YYYY-MM-DD HH")
+}
+export const createDayId = (day) => {
+    return dayjs(day).format("DD-MM-YYYY")
+}

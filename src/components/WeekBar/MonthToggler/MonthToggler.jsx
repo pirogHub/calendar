@@ -3,13 +3,14 @@ import React, { useContext } from 'react'
 import GlobalContext from '../../../context/GlobalContext'
 import styles from "../WeekBar.module.scss"
 import Arrow from '../../Arrow'
-export default function WeekToggler() {
-    const { monthIndex, setMonthIndex } = useContext(GlobalContext)
+export default function WeekToggler({ monthIndex, onClickPrev, onClickNext }) {
+    // const { monthIndex, setMonthIndex } = useContext(GlobalContext)
     return (
         <div className={styles.monthToggler_wrapper}>
             <button
                 className={styles.monthToggler_btn}
-                onClick={() => setMonthIndex(prev => prev - 1)}>
+                // onClick={() => setMonthIndex(prev => prev - 1)}>
+                onClick={onClickPrev}>
                 <Arrow />
             </button>
             <h2
@@ -19,7 +20,8 @@ export default function WeekToggler() {
             </h2>
             <button
                 className={styles.monthToggler_btn}
-                onClick={() => setMonthIndex(prev => prev + 1)}>
+                // onClick={() => setMonthIndex(prev => prev + 1)}>
+                onClick={onClickNext}>
                 <Arrow isRight />
             </button>
         </div>

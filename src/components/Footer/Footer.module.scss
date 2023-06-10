@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+
+    &:disabled {
+        color: #ccc;
+    }
+}

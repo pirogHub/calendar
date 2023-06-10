@@ -15,19 +15,20 @@ import WeekOfHours from './components/WeekOfHours/WeekOfHours';
 import './supstyles/main.scss';
 // import './supstyles/carousel.scss';
 import './supstyles/presentation.scss';
+import Footer from './components/Footer/Footer';
 
-
+// 2023-06-01 01:11:11
 function App() {
-  const [currentMonth, setCurrentMonth] = useState(getMonth())
-  const { monthIndex, showEventModal } = useContext(GlobalContext)
+  // const [currentMonth, setCurrentMonth] = useState(getMonth())
+  const { currentWeek, savedEvents, goToday, hourActivity_deleteAllHour } = useContext(GlobalContext)
 
 
-  useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex))
-  }, [monthIndex])
+  // useEffect(() => {
+  //   setCurrentMonth(getMonth(monthIndex))
+  // }, [monthIndex])
   return (
     <>
-      {showEventModal && <EventModal />}
+      {/* {showEventModal && <EventModal />} */}
       {/* <div className="h-screen flex flex-col"> */}
       <div className="calendarWrapper">
         <CalendarHeader />
@@ -39,9 +40,10 @@ function App() {
           </div>
         </div>
 
-        <WeekOfHours week={currentMonth[0]} />
+        <WeekOfHours week={currentWeek} savedEvents={savedEvents} />
 
         {/* </div> */}
+        <Footer />
       </div>
     </>
   );

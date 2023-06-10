@@ -8,9 +8,18 @@
 }
 
 .hour {
-    background-color: #d7f0df9c;
+
     height: 100%;
     width: 100%;
+    cursor: pointer;
+
+    &.hour_activity {
+        background-color: #d7f0df9c;
+    }
+
+    &.hour_clicked {
+        background-color: #b9cecd9c;
+    }
 }
 
 .timeTitle {
