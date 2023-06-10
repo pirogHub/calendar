@@ -54,16 +54,21 @@ margin-top: 15px;
         border-width: 3px 0 0 0;
         border-color: ${props => props.theme.border_color_additional};
         /* border-color: #f00; */
+        box-sizing: border-box;
        
     @media all and (max-width: 600px) {
+        align-items: self-start;
+        padding-top: 10px;
          height: 220px;
     }
 
     @media all and (max-width: 400px) {
+        align-items: self-start;
          height: 180px;
     }
 
     @media all and (max-width: 320px) {
+        align-items: self-start;
          height: 160px;
     } 
     
