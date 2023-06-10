@@ -9,26 +9,32 @@ button {
     padding: 0;
 }
 
+
 html {
-    font-size: 10px;
+    font-size: 14px;
 
     @media all and (max-width: 600px) {
         font-size: 90%;
+        background-color: #ff0;
     }
 
     @media all and (max-width: 500px) {
         font-size: 80%;
+        background-color: #f00;
     }
 
     @media all and (max-width: 400px) {
         font-size: 75%;
+        background-color: #00f;
     }
 
     @media all and (max-width: 390px) {
         font-size: 70%;
+        background-color: #0f0;
     }
 
     @media all and (max-width: 330px) {
         font-size: 50%;
+        background-color: #f0f;
     }
 }
