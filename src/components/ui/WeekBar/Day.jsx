@@ -119,11 +119,11 @@ const DayWrapper = styled.div`
 
 
     @media all and (max-width: 600px) {
-      height: 90px;
+      height: 85px;
     }
 
     @media all and (max-width: 400px) {
-      height: 90px;
+      height: 82px;
     }
     @media all and (max-width: 360px) {
       height: 75px;
