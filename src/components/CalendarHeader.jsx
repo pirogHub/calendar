@@ -24,7 +24,7 @@ export default CalendarHeader
 const StyledCalendarHeader = styled.header`
      min-height: 128px;
     padding: 0px;
-    padding-inline: 48px;
+    /* padding-inline: 48px; */
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -33,6 +33,7 @@ const StyledCalendarHeader = styled.header`
 
     @media all and (max-width: 600px) {
         min-height: 110px;
+        /* padding-inline: 18px; */
     }
 
     @media all and (max-width: 400px) {

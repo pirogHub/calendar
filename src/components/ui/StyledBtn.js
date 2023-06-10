@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const StyledBtn = styled.button`
     --color: ${props => props.$isNotActivity ? props.theme.color_simple : props.theme.color_active};
     --bsh: 0px 0px 3px ${props => props.theme.color_active_hover};
-    -padding:  ${props => props.theme.$withoutPudding ? 0 : "45px"};
+    --padding:  ${props => props.$withoutPadding ? "0" : "45px"};
 
     padding-block: 5px;
     padding-inline: var(--padding);
@@ -33,17 +33,16 @@ export const StyledBtn = styled.button`
 
 
     @media all and (max-width: 500px) {
-        -padding:  ${props => props.theme.$withoutPudding ? 0 : "35px"};
-    padding-inline: var(--padding);
+         
+    padding-inline:  ${props => props.$withoutPadding ? 0 : "35px"};
     }
 
     @media all and (max-width: 390px) {
-        -padding:  ${props => props.theme.$withoutPudding ? 0 : "25px"};
-        padding-inline: var(--padding);
+      
+        padding-inline: ${props => props.$withoutPadding ? "0" : "25px"};
     }
     @media all and (max-width: 300px) {
-        -padding:  ${props => props.theme.$withoutPudding ? 0 : "15px"};
-        padding-inline: var(--padding);
+                padding-inline:  ${props => props.$withoutPadding ? "0" : "15px"};
     }
 `
 
