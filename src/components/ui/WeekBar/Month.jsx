@@ -9,7 +9,7 @@ import { styled } from 'styled-components';
 
 const getConfigurableProps = () => ({
     showArrows: true,
-    showStatus: true,
+    showStatus: false,
     showIndicators: true,
     // infiniteLoop: false,
     // showThumbs: true,

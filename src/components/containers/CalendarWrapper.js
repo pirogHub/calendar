@@ -8,4 +8,6 @@ export const StyledCalendarWrapper = styled.div`
   margin-inline: auto;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  padding-inline: 5px;
 `
