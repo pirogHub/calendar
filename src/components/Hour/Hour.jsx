@@ -1,12 +1,24 @@
-import dayjs from "dayjs"
-import { useContext, useEffect, useState } from "react"
-import GlobalContext from "../../context/GlobalContext"
-import cn from "classnames"
 
-import styles from "./Hour.module.scss"
-const Hour = ({ hour, title, onClick, hourId, eventsThatHour }) => {
-  const { showInAlert, setSelectedHour, selectedHour, setIsSelectedHourHasActivity }
-    = useContext(GlobalContext)
+import React, { useEffect, useState } from "react"
+import { useCalendar } from "../../context/GlobalContext"
+
+import { StyledHourItem } from "./StyledHourItem"
+
+const Hour = ({
+  $NoActions,
+  $withBorder,
+  title,
+  hourId,
+  eventsThatHour
+}) => {
+  const {
+    showInAlert,
+    setSelectedHour,
+    selectedHour,
+    setIsSelectedHourHasActivity
+  }
+    = useCalendar()
+
   const [isSelected, setIsSelected] = useState(selectedHour === hourId)
 
   useEffect(() => {
@@ -23,28 +35,27 @@ const Hour = ({ hour, title, onClick, hourId, eventsThatHour }) => {
 
 
   return (
-    <div
+    <StyledHourItem
+      $NoActions={$NoActions}
+      $withBorder={$withBorder}
+      $isSelected={isSelected}
+      $isActivity={getCurrentDayStyle()}
       onClick={() => {
-
         setSelectedHour(hourId)
         setIsSelectedHourHasActivity(!!(eventsThatHour && eventsThatHour.length))
-
       }}
       onDoubleClick={
         () =>
           showInAlert(eventsThatHour)
       }
-      className={styles.hour_wrapper}>
-      <header className={cn(styles.hour, {
-        [styles.hour_activity]: getCurrentDayStyle(),
-        [styles.hour_clicked]: isSelected
-      })}>
+    >
+      <div className={"hour"}>
 
-        {!!title && <h3 className={styles.timeTitle}>{title}</h3>}
-      </header>
+        {!!title && <h3 className="timeTitle">{title}</h3>}
+      </div>
 
-    </div>
+    </StyledHourItem>
   )
 }
 
-export default Hour
+export default React.memo(Hour)

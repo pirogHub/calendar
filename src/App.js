@@ -1,50 +1,41 @@
 import './App.css';
-import CalendarHeader from './components/CalendarHeader/CalendarHeader';
+import CalendarHeader from './components/CalendarHeader';
 
-import { useContext } from 'react';
+import { useCalendar } from './context/GlobalContext';
 
-import GlobalContext from './context/GlobalContext';
-
-import WeekBar from './components/WeekBar/WeekBar';
-import WeekOfHours from './components/WeekOfHours/WeekOfHours';
+import WeekBar from "./components/ui/WeekBar/WeekBar"
+import WeekOfHours from './components/WeekOfHours';
 
 
-import './supstyles/main.scss';
-import './supstyles/presentation.scss';
-import Footer from './components/Footer/Footer';
+
+import Footer from './components/Footer';
+import MyGreedMyRules from './components/containers/MyGreedMyRules';
+import { StyledCalendarWrapper } from './components/containers/CalendarWrapper';
 
 // 2023-06-10 01:11:11
 function App() {
   const {
     currentWeek,
     savedEvents,
-    goToday,
-    hourActivity_deleteAllHour,
-    MonthIndex
-  } = useContext(GlobalContext)
+  } = useCalendar()
 
 
 
   return (
     <>
-      <div className="calendarWrapper">
+      <StyledCalendarWrapper>
         <CalendarHeader />
-        <div className='my_grid my_grid_styles'>
-          <div></div>
-
-          <div >
-            <WeekBar />
-          </div>
-        </div>
-
+        <MyGreedMyRules
+          $additional
+          Comp1={<div></div>}
+          Comp2={<div ><WeekBar /></div>}
+        />
         <WeekOfHours
           week={currentWeek}
           savedEvents={savedEvents}
         />
-
-
         <Footer />
-      </div>
+      </StyledCalendarWrapper>
     </>
   );
 }

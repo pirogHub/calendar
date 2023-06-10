@@ -1,10 +1,10 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import styles from "./Month.module.scss"
-import Day from '../Day/Day';
-import GlobalContext from '../../../context/GlobalContext';
+import Day from './Day';
+import { useCalendar } from '../../../context/GlobalContext';
+import { styled } from 'styled-components';
 
 
 const getConfigurableProps = () => ({
@@ -29,13 +29,22 @@ const getConfigurableProps = () => ({
     centerSlidePercentage: 100
 });
 
-export default function Month({ onChangeWeek, month }) {
-    const [selectedItem, setSelectedItem] = useState(0)
-    const onChange = (itemIdx, item) => {
-        onChangeWeek(itemIdx)
+export default function Month() {
+
+    const {
+        currentMonth,
+        todayWeekIdx,
+        isGoToday,
+        setIsGoToday,
+        setCurrentWeekIdx
     }
-    const { todayWeekIdx, isGoToday, setIsGoToday }
-        = useContext(GlobalContext)
+        = useCalendar()
+
+    const onChangeWeek = useCallback((itemIdx, item) => {
+        setCurrentWeekIdx(prev => itemIdx)
+    }, [setCurrentWeekIdx])
+
+
     const carousel_ref = useRef()
     useEffect(() => {
         if (isGoToday) {
@@ -51,25 +60,24 @@ export default function Month({ onChangeWeek, month }) {
                 ref={carousel_ref}
                 infiniteLoop
                 centerMode
-                onChange={onChange}
+                onChange={onChangeWeek}
                 {...getConfigurableProps()}
                 selectedItem={todayWeekIdx}
 
             >
 
 
-                {month.map((week, rowIdx) => {
+                {currentMonth.map((week, rowIdx) => {
 
 
-                    return <div
-                        className={styles.weekWrapper}
+                    return <WeekWrapper
                         key={week.id}
                     >
                         {week.map((day, idx) => {
 
                             return <Day day={day} key={day.id} />
                         })}
-                    </div>
+                    </WeekWrapper>
                 }
                 )}
 
@@ -77,3 +85,19 @@ export default function Month({ onChangeWeek, month }) {
         </>
     )
 }
+
+
+const WeekWrapper = styled.div`
+        display: flex;
+    justify-content: flex-start;
+
+    &>div {
+        width: calc(100% / 7);
+    }
+
+    // &>div:nth-last-child(-n+6):first-child,
+    // &>div:nth-last-child(-n+6):first-child~div {
+    //     background-color: #00f;
+
+    // }
+`
